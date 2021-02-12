@@ -1,0 +1,7 @@
+C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\bin\Debug\tic-tac-toe.exe.config
+C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\bin\Debug\tic-tac-toe.exe
+C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\bin\Debug\tic-tac-toe.pdb
+C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.csprojAssemblyReference.cache
+C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.csproj.CoreCompileInputs.cache
+C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.exe
+C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.pdb
