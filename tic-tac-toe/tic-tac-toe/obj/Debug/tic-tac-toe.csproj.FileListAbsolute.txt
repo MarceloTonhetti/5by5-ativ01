@@ -5,3 +5,10 @@ C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.csprojAssemblyR
 C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.csproj.CoreCompileInputs.cache
 C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.exe
 C:\git\5by5-ativ01\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.pdb
+C:\Users\viesi\source\repos\hugoviesi\5by5-ativ01-1\tic-tac-toe\tic-tac-toe\bin\Debug\tic-tac-toe.exe.config
+C:\Users\viesi\source\repos\hugoviesi\5by5-ativ01-1\tic-tac-toe\tic-tac-toe\bin\Debug\tic-tac-toe.exe
+C:\Users\viesi\source\repos\hugoviesi\5by5-ativ01-1\tic-tac-toe\tic-tac-toe\bin\Debug\tic-tac-toe.pdb
+C:\Users\viesi\source\repos\hugoviesi\5by5-ativ01-1\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.csprojAssemblyReference.cache
+C:\Users\viesi\source\repos\hugoviesi\5by5-ativ01-1\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.csproj.CoreCompileInputs.cache
+C:\Users\viesi\source\repos\hugoviesi\5by5-ativ01-1\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.exe
+C:\Users\viesi\source\repos\hugoviesi\5by5-ativ01-1\tic-tac-toe\tic-tac-toe\obj\Debug\tic-tac-toe.pdb
