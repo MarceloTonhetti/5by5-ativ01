@@ -75,7 +75,88 @@ namespace tic_tac_toe
 		}
 
 
+		static int verificaStatus(int[,] board)
+		{
+            int sum = 0;
 
+			//Verificar linha:
+            for (int line = 0; line < board.GetLength(0); line++)
+            {
+                for (int colunm = 0; colunm < board.GetLength(1); colunm++) 
+                {
+                        sum += board[line, colunm];
+                }
+
+                if (sum == 3)
+                    {                
+                    return 1;
+                }
+                else
+                    if (sum == 12)
+                    {                        
+                        return 2;
+                    }
+            }
+
+            //Verificar coluna:
+            sum = 0;
+            for (int colunm = 0; colunm < board.GetLength(0); colunm++) //travar a coluna (nao a sua coluna)
+            {
+                for (int line = 0; line < board.GetLength(1); line++) //rodar a linha
+                {
+                    if (board[line, colunm] != 0)
+                    {
+                        sum += board[line, colunm];
+                    }
+                }
+                if (sum == 3)
+                {
+                    return 1;
+                }
+                else if (sum == 12)
+                {
+                    return 2;
+                }
+            }
+
+            //Verificar diagonal principal:
+            sum = 0;
+            for (int line = 0, colunm = 0; line < board.GetLength(0); line++, colunm++) //Linha e coluna serem iguais
+            {
+                if (board[line, colunm] != 0)
+                {
+                    sum += board[line, colunm];
+                }
+                if (sum == 3)
+                {
+                    return 1;
+                }
+                else if (sum == 12)
+                {
+                    return 2;
+                }
+            }
+
+            //Verificar diagonal secundária:
+            sum = 0;
+            for (int line = 0, colunm = 2; line < board.GetLength(0); line++, colunm--) //Linha e coluna serem opostas
+            {
+                if (board[line, colunm] != 0)
+                {
+                    sum += board[line, colunm];
+                }
+                if (sum == 3)
+                {
+                    return 1;
+                }
+                else if(sum == 12)
+                {
+                    return 2;
+                }
+            }
+
+            return 3;
+		}
 
 
 		static bool verificaPosicao(int[,] board, int line, int column )
