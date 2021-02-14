@@ -16,13 +16,15 @@ namespace tic_tac_toe
 
             bool match = false;
             int retornoStatus;
+            
+            tutorial();
 
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("Jogo da velha!!!\n\n");
+				Console.WriteLine("---x---x---x---x--- Jogo da velha ---x---x---x---x---\n\n");
                 
-                Console.WriteLine("Partida em andamento...");
+                Console.WriteLine("Partida em andamento...\n\nTabuleiro");
 				imprimir_jogo(board);
 
 				if(player % 2 != 0)
@@ -54,7 +56,7 @@ namespace tic_tac_toe
                         {
                             Console.Clear();
                             Console.WriteLine("---x---x---x---x--- Partida Finalizada ---x---x---x---x---");
-                            Console.WriteLine("EMPATE!!!");
+                            Console.WriteLine("EMPATE !!!");
 			                imprimir_jogo(board);
                             match = true;
                         }
@@ -224,6 +226,29 @@ namespace tic_tac_toe
 			else
 				return false;
 		}
+
+        static void tutorial()
+        {
+            Console.WriteLine("---x---x---x---x--- Tutorial Rápido ---x---x---x---x---");
+            Console.WriteLine("\nRepresentação do Jogador 1: X");
+            Console.WriteLine("Representação do Jogador 2: O");
+            Console.WriteLine("\nPara realizar uma jogada voce deve informar o valor da linha e da coluna");
+            Console.WriteLine("\nExemplo de jogada do jogador 1\n");
+            Console.WriteLine("Escolha uma linha: 1");
+            Console.WriteLine("Escolha uma coluna: 1");
+            Console.WriteLine("\nTabuleiro apos a jogada:\n");
+
+			Console.WriteLine("     0   1   2  COLUNAS\n");
+			Console.WriteLine("0    - | - | -");
+			Console.WriteLine("    ------------");
+			Console.WriteLine("1    - | X | -");
+			Console.WriteLine("    ------------");
+			Console.WriteLine("2    - | - | -");
+            Console.WriteLine("\nL\nI\nN\nH\nA\nS\n\n");
+
+            Console.Write("Pressione qualquer tecla para iniciar o jogo...");
+            Console.ReadKey();
+        }
 
 	}
 }
