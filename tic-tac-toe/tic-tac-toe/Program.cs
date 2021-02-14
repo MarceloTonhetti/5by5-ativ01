@@ -14,7 +14,8 @@ namespace tic_tac_toe
 			int player = 1;
 			int line=0, column=0;
 
-            
+            bool match = false;
+            int retornoStatus;
 
 			do
 			{
@@ -29,12 +30,37 @@ namespace tic_tac_toe
 				else
 					readChoice(board, 4, ref line, ref column);
 
-                
+                retornoStatus = verificaStatus(board);
 
-            
+                if (retornoStatus == 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine("---x---x---x---x--- Partida Finalizada ---x---x---x---x---");
+                    Console.WriteLine("JOGADOR 1 GANHOU !!!");
+			        imprimir_jogo(board);
+                    match = true;
+                }
+                else
+                   if(retornoStatus == 2)
+                   {
+                        Console.Clear();
+                        Console.WriteLine("---x---x---x---x--- Partida Finalizada ---x---x---x---x---");
+                        Console.WriteLine("JOGADOR 2 GANHOU !!!");
+			            imprimir_jogo(board);
+                        match = true;
+                   }
+                    else
+                        if (retornoStatus == 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("---x---x---x---x--- Partida Finalizada ---x---x---x---x---");
+                            Console.WriteLine("EMPATE!!!");
+			                imprimir_jogo(board);
+                            match = true;
+                        }
 
 				player++;
-			}while(board[2,2] == 0);
+			}while(!match);
         
 			Console.WriteLine("Pressione qualquer tecla para sair...");
 			Console.ReadKey();
@@ -46,7 +72,10 @@ namespace tic_tac_toe
 
 			do
 			{
-				Console.WriteLine("\nJogador " + player);
+                if (player == 1)
+                    Console.WriteLine("\nJogador 1");
+                else
+				    Console.WriteLine("\nJogador 2");
 				Console.Write("Escolha a posição da linha: ");
 				line = int.Parse(Console.ReadLine());
 				Console.Write("Escolha a posição da coluna: ");
@@ -84,76 +113,69 @@ namespace tic_tac_toe
             {
                 for (int colunm = 0; colunm < board.GetLength(1); colunm++) 
                 {
-                        sum += board[line, colunm];
+                    sum += board[line, colunm];
                 }
 
                 if (sum == 3)
-                    {                
                     return 1;
-                }
                 else
                     if (sum == 12)
-                    {                        
                         return 2;
-                    }
             }
 
             //Verificar coluna:
             sum = 0;
-            for (int colunm = 0; colunm < board.GetLength(0); colunm++) //travar a coluna (nao a sua coluna)
+            for (int colunm = 0; colunm < board.GetLength(0); colunm++)
             {
-                for (int line = 0; line < board.GetLength(1); line++) //rodar a linha
+                for (int line = 0; line < board.GetLength(1); line++) 
                 {
-                    if (board[line, colunm] != 0)
-                    {
-                        sum += board[line, colunm];
-                    }
+                    sum += board[line, colunm];
                 }
+
                 if (sum == 3)
-                {
                     return 1;
-                }
-                else if (sum == 12)
-                {
-                    return 2;
-                }
+                else
+                    if (sum == 12)
+                        return 2;
             }
 
             //Verificar diagonal principal:
             sum = 0;
-            for (int line = 0, colunm = 0; line < board.GetLength(0); line++, colunm++) //Linha e coluna serem iguais
+            for (int line = 0, colunm = 0; line < board.GetLength(0); line++, colunm++)
             {
-                if (board[line, colunm] != 0)
-                {
-                    sum += board[line, colunm];
-                }
+                sum += board[line, colunm];
+
                 if (sum == 3)
-                {
                     return 1;
-                }
                 else if (sum == 12)
-                {
                     return 2;
-                }
             }
 
             //Verificar diagonal secundária:
             sum = 0;
-            for (int line = 0, colunm = 2; line < board.GetLength(0); line++, colunm--) //Linha e coluna serem opostas
+            for (int line = 0, colunm = 2; line < board.GetLength(0); line++, colunm--) 
             {
-                if (board[line, colunm] != 0)
-                {
-                    sum += board[line, colunm];
-                }
+               sum += board[line, colunm];
+
                 if (sum == 3)
-                {
                     return 1;
-                }
                 else if(sum == 12)
-                {
                     return 2;
+            }
+
+            //Empate
+            sum = 0;
+            for (int line = 0; line < board.GetLength(0); line++) 
+            {
+                for (int colunm = 0; colunm < board.GetLength(1); colunm++) 
+                {
+                    if(board[line, colunm] != 0)
+                        sum++;
                 }
             }
+
+            if (sum == (board.GetLength(0) * board.GetLength(1)))
+                return 0;
 
             return 3;
 		}
