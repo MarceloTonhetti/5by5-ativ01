@@ -92,15 +92,32 @@ namespace tic_tac_toe
 			}while(flag);
 		}
 
-		static void imprimir_jogo(int[,] board)
+        static void imprimir_jogo(int[,] board)
 		{
+            char[,] auxBoard = new char[board.GetLength(0), board.GetLength(1)];
+
+            for (int i = 0; i < board.GetLength(0); i++)
+			{
+                for (int j = 0; j < board.GetLength(1); j++)
+			    {
+                    if(board[i,j] == 0)
+                        auxBoard[i,j] = '-';
+                    else
+                        if(board[i,j] == 1)
+                            auxBoard[i,j] = 'X';
+                        else
+                            if(board[i,j] == 4)
+                                auxBoard[i,j] = 'O';
+			    }
+			}
+
 			Console.WriteLine("\n");
 			Console.WriteLine("    0   1   2 \n");
-			Console.WriteLine("0   "+board[0,0]+" | "+board[0,1]+" | "+board[0,2]);
+			Console.WriteLine("0   "+auxBoard[0,0]+" | "+auxBoard[0,1]+" | "+auxBoard[0,2]);
 			Console.WriteLine("   -----------");
-			Console.WriteLine("1   "+board[1,0]+" | "+board[1,1]+" | "+board[1,2]);
+			Console.WriteLine("1   "+auxBoard[1,0]+" | "+auxBoard[1,1]+" | "+auxBoard[1,2]);
 			Console.WriteLine("   -----------");
-			Console.WriteLine("2   "+board[2,0]+" | "+board[2,1]+" | "+board[2,2]);
+			Console.WriteLine("2   "+auxBoard[2,0]+" | "+auxBoard[2,1]+" | "+auxBoard[2,2]);
 		}
 
 
