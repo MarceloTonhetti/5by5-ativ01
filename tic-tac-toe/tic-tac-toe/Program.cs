@@ -66,30 +66,51 @@ namespace tic_tac_toe
 			Console.ReadKey();
 		}
 
-		static void readChoice(int[,] board, int player, ref int line, ref int column)
+        static void readChoice(int[,] board, int player, ref int line, ref int column)
 		{
-			bool flag = false;
+		    bool flag = false;
 
-			do
-			{
-                if (player == 1)
-                    Console.WriteLine("\nJogador 1");
-                else
-				    Console.WriteLine("\nJogador 2");
-				Console.Write("Escolha a posição da linha: ");
-				line = int.Parse(Console.ReadLine());
-				Console.Write("Escolha a posição da coluna: ");
-				column = int.Parse(Console.ReadLine());
+            inicio:
+            try 
+	        {	        
+			    do
+		        {
+                    if (player == 1)
+                        Console.WriteLine("\nJogador 1");
+                    else
+				        Console.WriteLine("\nJogador 2");
+			        Console.Write("Escolha a posição da linha: ");
+			        line = int.Parse(Console.ReadLine());
+			        Console.Write("Escolha a posição da coluna: ");
+			        column = int.Parse(Console.ReadLine());
 
-				if(verificaPosicao(board, line, column))
-				{
-					board[line, column] = player;
-					flag = false;
-				}
-				else
-					flag = true;
-					
-			}while(flag);
+                    if(line < 0 || line > 2 || column < 0 || column > 2)
+                    {
+                        flag = true;
+                        Console.WriteLine("Voce digitou um numero fora dos limites !!!");
+                    }
+                    else
+                    {
+                        if(verificaPosicao(board, line, column))
+				        {
+					        board[line, column] = player;
+					        flag = false;
+				        }
+				        else
+                        {
+					        flag = true;
+                            Console.WriteLine("A posição no tabuleiro já foi escolhida!!!");
+                        }
+			        }
+		        }while(flag);
+	        }
+	        catch (FormatException)
+	        {
+                Console.WriteLine("Digite apenas numeros inteiros !!!\a");
+                goto inicio;
+	        }
+
+
 		}
 
         static void imprimir_jogo(int[,] board)
@@ -119,7 +140,6 @@ namespace tic_tac_toe
 			Console.WriteLine("   -----------");
 			Console.WriteLine("2   "+auxBoard[2,0]+" | "+auxBoard[2,1]+" | "+auxBoard[2,2]);
 		}
-
 
 		static int verificaStatus(int[,] board)
 		{
@@ -196,7 +216,6 @@ namespace tic_tac_toe
 
             return 3;
 		}
-
 
 		static bool verificaPosicao(int[,] board, int line, int column )
 		{
