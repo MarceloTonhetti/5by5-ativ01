@@ -150,6 +150,7 @@ namespace tic_tac_toe
 			//Verificar linha:
             for (int line = 0; line < board.GetLength(0); line++)
             {
+                sum = 0;
                 for (int colunm = 0; colunm < board.GetLength(1); colunm++) 
                 {
                     sum += board[line, colunm];
@@ -163,9 +164,9 @@ namespace tic_tac_toe
             }
 
             //Verificar coluna:
-            sum = 0;
             for (int colunm = 0; colunm < board.GetLength(0); colunm++)
             {
+                sum = 0;
                 for (int line = 0; line < board.GetLength(1); line++) 
                 {
                     sum += board[line, colunm];
@@ -179,9 +180,10 @@ namespace tic_tac_toe
             }
 
             //Verificar diagonal principal:
-            sum = 0;
+            
             for (int line = 0, colunm = 0; line < board.GetLength(0); line++, colunm++)
             {
+                sum = 0;
                 sum += board[line, colunm];
 
                 if (sum == 3)
@@ -191,9 +193,9 @@ namespace tic_tac_toe
             }
 
             //Verificar diagonal secundária:
-            sum = 0;
             for (int line = 0, colunm = 2; line < board.GetLength(0); line++, colunm--) 
             {
+                sum = 0;
                sum += board[line, colunm];
 
                 if (sum == 3)
@@ -206,6 +208,7 @@ namespace tic_tac_toe
             sum = 0;
             for (int line = 0; line < board.GetLength(0); line++) 
             {
+
                 for (int colunm = 0; colunm < board.GetLength(1); colunm++) 
                 {
                     if(board[line, colunm] != 0)
